@@ -19,7 +19,7 @@ def load_xgboost_model():
 # Function to load the RandomForest model
 def load_randomforest_model():
     base_path = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(base_path, 'Potability_Model.pkl')
+    model_path = os.path.join(base_path, 'Potability_Model2.pkl')
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
 
