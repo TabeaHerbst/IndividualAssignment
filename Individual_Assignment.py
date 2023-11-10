@@ -30,14 +30,14 @@ def display_image(model_choice):
     if model_choice == "XGBoost":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/pumpkin_seeds_image.jpeg", caption="Pumpkin Seeds", use_column_width=True)
     elif model_choice == "RandomForest":
-        st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpg", caption="Potability", use_column_width=True)
+        st.image("https://github.com/TabeaHerbst/IndividualAssignment/blob/main/potability_image.jpeg", caption="Potability", use_column_width=True)
 
 def main():
     st.title("Quality Prediction App")
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
     
     # Home screen to select the model
-    model_choice = st.sidebar.radio("Select Model", ("XGBoost", "RandomForest"))
+    model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Quality", "Water Potability"))
     print(f"Selected model: {model_choice}")
 
     if model_choice == "XGBoost":
