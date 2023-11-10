@@ -1,10 +1,9 @@
 import streamlit as st
-import pickle
 import numpy as np
 import pandas as pd
 import os
 import xgboost as xgb
-from sklearn.ensemble import RandomForestClassifier
+import pickle
 
 # Function to load the XGBoost model
 def load_xgboost_model():
