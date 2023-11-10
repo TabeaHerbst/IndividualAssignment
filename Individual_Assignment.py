@@ -167,8 +167,6 @@ def main():
             else:
                 st.error('The water is not potable.')
     
-            # Add a colored field to visually indicate potability
-            color = 'green' if prediction_label_rf == 'potable' else 'red'
             st.markdown(
                 f'<div style="background-color:{color}; padding:10px; border-radius:5px;">'
                 f'<p style="color:white; text-align:center; font-size: larger;">'
