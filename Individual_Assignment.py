@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
 import os
 import xgboost as xgb
 from sklearn.ensemble import RandomForestClassifier
@@ -39,15 +39,15 @@ def main():
     if model_choice == "XGBoost":
         st.header("XGBoost Model")
 
-        def preprocess_data(data):
+        #def preprocess_data(data):
             # Features to be scaled
-            features_to_scale = ['Major_Axis_Length', 'Minor_Axis_Length', 'Eccentricity', 'Solidity', 'Extent', 'Roundness', 'Aspect_Ratio', 'Compactness']
+            #features_to_scale = ['Major_Axis_Length', 'Minor_Axis_Length', 'Eccentricity', 'Solidity', 'Extent', 'Roundness', 'Aspect_Ratio', 'Compactness']
 
             # Apply standard scaling to the selected features
-            scaler = StandardScaler()
-            data[features_to_scale] = scaler.fit_transform(data[features_to_scale])
+            #scaler = StandardScaler()
+            #data[features_to_scale] = scaler.fit_transform(data[features_to_scale])
 
-            return data
+            #return data
 
         # Function to make predictions
         # Function to make predictions
