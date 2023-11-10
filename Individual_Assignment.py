@@ -30,16 +30,15 @@ def display_image(model_choice):
     if model_choice == "XGBoost":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/pumpkin_seeds_image.jpeg", caption="Pumpkin Seeds", use_column_width=True)
     elif model_choice == "RandomForest":
-        st.image("potability_image.jpg", caption="Potability", use_column_width=True)
+        st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpg", caption="Potability", use_column_width=True)
 
 
-# Streamlit app
 def main():
     st.title("Quality Prediction App")
-    st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left ahnd side.")
+    st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
     
     # Home screen to select the model
-    model_choice = st.sidebar.radio("Select Model", ("XGBoost", "RandomForest"))
+    model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Prediction", "Water Potability Prediction"))
 
     if model_choice == "XGBoost":
         st.header("Pumpkin Seed Quality Prediction")
@@ -121,13 +120,24 @@ def main():
             return data
             
         def predict_rf(data):
+            # Preprocess the input data
             data_processed = preprocess_data_rf(data)
+        
+            # Create a DataFrame from the processed data
             data_processed_df = pd.DataFrame.from_dict(data_processed, orient='index', columns=[0])
+        
+            # Transpose the DataFrame to have the correct shape
             data_processed_df = data_processed_df.T
-            data_processed_df = data_processed_df.drop(["pHxSulfate", "SulfatexChloramines"], axis=1, errors="ignore")
-            prediction = randomforest_model.predict(data_processed_df)
-            
-            return prediction[0]
+        
+            # Ensure the input has the correct number of features
+            if data_processed_df.shape[1] != 11:
+                st.error(f"Error: The RandomForest model expects 11 features, but the input has {data_processed_df.shape[1]} features.")
+                return None
+
+            data_processed_df['prediction_column'] = randomforest_model.predict(data_processed_df)
+            print(data_processed_df)  # Print the DataFrame structure
+        
+            return data_processed_df
 
         ph = st.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
         hardness = st.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
