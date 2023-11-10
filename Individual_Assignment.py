@@ -35,7 +35,7 @@ def main():
     st.title("Quality Prediction App")
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
     
-    model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Quality", "Water Potability"))
+    model_choice = st.sidebar.radio("Select Quality Prediction Model", ("Pumpkin Seed Quality", "Water Potability"))
     
     if model_choice == "Pumpkin Seed Quality":
         st.header("Pumpkin Seed Quality Prediction")
@@ -102,6 +102,12 @@ def main():
                 prediction_label = class_mapping[int(result[0])]
     
                 st.write('This pumpkin seed is of quality type', prediction_label + '.')
+
+                # Display additional information based on the type of pumpkin seed
+                if prediction_label == 'Ürgüp Sivrisi':
+                    st.write('Ürgüp Sivrisi is a pumpkin seed that is sun-dried.')
+                elif prediction_label == 'Çerçevelik':
+                    st.write('Çerçevelik is a pumpkin seed that is roasted.')
     
     elif model_choice == "Water Potability":
         st.header("Water Potability Prediction")
