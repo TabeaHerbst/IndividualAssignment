@@ -183,6 +183,10 @@ def main():
 
     st.sidebar.text("")
     st.sidebar.text("")
+    st.sidebar.text("")
+    st.sidebar.text("")
+    st.sidebar.text("")
+    st.sidebar.text("")
     st.sidebar.markdown("[Pumpkin Seeds Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/Pumpkin_Seeds_Dataset.csv)")
     st.sidebar.markdown("[Water Potability Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/water_potability.csv)")
 
