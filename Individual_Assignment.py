@@ -90,7 +90,7 @@ def main():
                 'Solidity': [solidity],
                 'Extent': [extent],
                 'Roundness': [roundness],
-                'Aspect_Ratio': [aspect_ratio],
+                'Aspect_Ration': [aspect_ratio],
                 'Compactness': [compactness]
             })
 
