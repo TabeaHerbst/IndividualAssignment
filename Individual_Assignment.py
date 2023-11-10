@@ -112,21 +112,15 @@ def main():
             data["pHxSulfate"] = data["ph"] * data["Sulfate"]
             data["SulfatexChloramines"] = data["Sulfate"] * data["Chloramines"]
             return data
-
+            
         def predict_rf(data):
-            # Preprocess the input data
             data_processed = preprocess_data_rf(data)
-            
-            # Create a DataFrame from the processed data
             data_processed_df = pd.DataFrame.from_dict(data_processed, orient='index', columns=[0])
-        
-            # Transpose the DataFrame to have the correct shape
             data_processed_df = data_processed_df.T
-        
-            data_processed_df['prediction_column'] = randomforest_model.predict(data_processed_df)
-            print(data_processed_df)  # Print the DataFrame structure
+            data_processed_df = data_processed_df.drop(["pHxSulfate", "SulfatexChloramines"], axis=1, errors="ignore")
+            prediction = randomforest_model.predict(data_processed_df)
             
-            return data_processed_df
+            return prediction[0]
 
         ph = st.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
         hardness = st.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
