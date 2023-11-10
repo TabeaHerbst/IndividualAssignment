@@ -20,7 +20,9 @@ def load_xgboost_model():
 def load_randomforest_model():
     base_path = os.path.dirname(os.path.abspath(__file__))
     model_path = os.path.join(base_path, 'Potability_Model.pkl')
-    model = joblib.load(model_path)
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)
+
     return model
 
 # Load models in the global scope
