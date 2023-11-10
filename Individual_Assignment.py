@@ -38,7 +38,8 @@ def main():
     
     # Home screen to select the model
     model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Prediction", "Water Potability Prediction"))
-
+    print(f"Selected model: {model_choice}")
+    
     if model_choice == "XGBoost":
         st.header("Pumpkin Seed Quality Prediction")
         display_image(model_choice)
