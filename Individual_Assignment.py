@@ -117,8 +117,11 @@ def main():
             # Preprocess the input data
             data_processed = preprocess_data_rf(data)
         
-            # Convert the processed data to a DataFrame
-            data_processed_df = pd.DataFrame(data_processed, columns=data_processed.keys())
+            # Create a DataFrame from the processed data
+            data_processed_df = pd.DataFrame.from_dict(data_processed, orient='index', columns=[0])
+        
+            # Transpose the DataFrame to have the correct shape
+            data_processed_df = data_processed_df.T
         
             # Return the processed data as a DataFrame
             return data_processed_df
