@@ -167,7 +167,7 @@ def main():
         }
 
         if st.button("Predict"):
-                result = predict(user_input)
+                predict_rf(input_data)
 
                 # Map the prediction to the corresponding class
                 class_mapping = {0: 'potable', 1: 'not potable'}
