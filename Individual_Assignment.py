@@ -105,6 +105,7 @@ def main():
     
     elif model_choice == "Water Potability":
         st.header("Water Potability Prediction")
+        display_image(model_choice)
     
         def preprocess_data_rf(data):
             data["pHxSulfate"] = data["ph"] * data["Sulfate"]
