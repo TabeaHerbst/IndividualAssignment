@@ -19,7 +19,6 @@ def load_randomforest_model():
     model_path = os.path.join(base_path, 'Potability_Model3.pkl')
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
-
     return model
 
 # Load models in the global scope
@@ -106,7 +105,6 @@ def main():
 
                 st.write('This pumpkin seed is of quality type', prediction_label + '.')
 
-    
     elif model_choice == "RandomForest":
         st.header("Water Potability Prediction")
 
@@ -121,9 +119,6 @@ def main():
         
             # Create a DataFrame from the processed data
             data_processed_df = pd.DataFrame.from_dict(data_processed, orient='index', columns=[0])
-        
-            # Transpose the DataFrame to have the correct shape
-
         
             # Transpose the DataFrame to have the correct shape
             data_processed_df = data_processed_df.T
@@ -147,7 +142,6 @@ def main():
         organic_carbon = st.slider('Organic Carbon', min_value=0.0, max_value=50.0, value=10.0)
         trihalomethanes = st.slider('Trihalomethanes', min_value=0.0, max_value=200.0, value=50.0)
         turbidity = st.slider('Turbidity', min_value=0.0, max_value=10.0, value=5.0)
-
 
         # Create a dictionary with the input data
         input_data = {
