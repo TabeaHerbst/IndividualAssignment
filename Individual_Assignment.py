@@ -45,7 +45,7 @@ def main():
         st.sidebar.markdown("""
         <style>
             [data-testid=stSidebar] {
-                background-color: #C4A484;
+                background-color: #EADDCA;
             }
         </style>
         """, unsafe_allow_html=True)
@@ -121,6 +121,13 @@ def main():
     elif model_choice == "Water Potability":
         st.header("Water Potability Prediction")
         display_image(model_choice)
+        st.sidebar.markdown("""
+        <style>
+            [data-testid=stSidebar] {
+                background-color: #ADD8E6;
+            }
+        </style>
+        """, unsafe_allow_html=True)
     
         def preprocess_data_rf(data):
             data["pHxSulfate"] = data["ph"] * data["Sulfate"]
