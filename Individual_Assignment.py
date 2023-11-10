@@ -36,9 +36,7 @@ def main():
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
     st.sidebar.header('Select Quality Prediction Model')
     model_choice = st.sidebar.radio("Probe",("Pumpkin Seed Quality", "Water Potability"))
-    st.sidebar.markdown("[Pumpkin Seeds Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/Pumpkin_Seeds_Dataset.csv)")
-    st.sidebar.markdown("[Water Potability Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/water_potability.csv)")
-
+    
     
     if model_choice == "Pumpkin Seed Quality":
         st.header("Pumpkin Seed Quality Prediction")
@@ -182,6 +180,11 @@ def main():
                 f'<p style="color:white; text-align:center; font-size: larger;">'
                 f'The water is {prediction_label_rf}.'
                 f'</p></div>', unsafe_allow_html=True)
+
+    st.sidebar.markdown("[Pumpkin Seeds Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/Pumpkin_Seeds_Dataset.csv)")
+    st.sidebar.markdown("[Water Potability Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/water_potability.csv)")
+
+    
 
 if __name__ == "__main__":
     main()
