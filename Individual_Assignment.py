@@ -40,7 +40,7 @@ def main():
     model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Quality", "Water Potability"))
     print(f"Selected model: {model_choice}")
 
-if model_choice == "XGBoost":
+    if model_choice == "XGBoost":
         st.header("Pumpkin Seed Quality Prediction")
         display_image(model_choice)
         
@@ -117,7 +117,7 @@ if model_choice == "XGBoost":
                 st.write('This pumpkin seed is of quality type', prediction_label + '.')
 
     
-elif model_choice == "RandomForest":
+    elif model_choice == "RandomForest":
         st.header("Water Potability Prediction")
 
         def preprocess_data_rf(data):
