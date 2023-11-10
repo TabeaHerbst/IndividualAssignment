@@ -31,12 +31,7 @@ def display_image(model_choice):
     elif model_choice == "Water Potability":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpeg", caption="Potability", use_column_width=True)
 
-def main():
-    st.title("Quality Prediction App")
-    st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
-    st.sidebar.header('Select Quality Prediction Model')
-    model_choice = st.sidebar.radio("Probe",("Pumpkin Seed Quality", "Water Potability"))
-    st.markdown(
+st.markdown(
     """
     <style>
         .sidebar .sidebar-content {
@@ -45,7 +40,13 @@ def main():
     </style>
     """,
     unsafe_allow_html=True
-    )
+)
+
+def main():
+    st.title("Quality Prediction App")
+    st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
+    st.sidebar.header('Select Quality Prediction Model')
+    model_choice = st.sidebar.radio("Probe",("Pumpkin Seed Quality", "Water Potability"))
     
     
     if model_choice == "Pumpkin Seed Quality":
