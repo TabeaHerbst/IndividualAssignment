@@ -22,13 +22,6 @@ def load_randomforest_model():
 
     return model
 
-def display_image(model_choice):
-    if model_choice == "XGBoost":
-        st.image("path/to/pumpkin_seed_image.jpg", caption="Pumpkin Seed", use_column_width=True)
-    elif model_choice == "RandomForest":
-        st.image("path/to/potability_image.jpg", caption="Potability", use_column_width=True)
-
-
 # Load models in the global scope
 xgboost_model = load_xgboost_model()
 randomforest_model = load_randomforest_model()
