@@ -163,10 +163,8 @@ def main():
     
             # Display the result with a colored field
             if prediction_label_rf == 'potable':
-                st.success('The water is potable.')
                 color = 'green'
             else:
-                st.error('The water is not potable.')
                 color = 'red'
     
             st.markdown(
