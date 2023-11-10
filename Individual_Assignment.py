@@ -40,14 +40,14 @@ def main():
     print(f"Selected model: {model_choice}")
     
     if model_choice == "XGBoost":
-            st.header("Pumpkin Seed Quality Prediction")
-            display_image(model_choice)
-            
+        st.header("Pumpkin Seed Quality Prediction")
+        display_image(model_choice)
+    
         def predict(data):
             # Make predictions
             predictions = xgboost_model.predict(data)
             return predictions
-                
+        
         average_major_axis_length = 456.60
         average_minor_axis_length = 225.79
         average_eccentricity = 0.86
