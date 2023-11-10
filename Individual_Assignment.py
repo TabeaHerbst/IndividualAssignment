@@ -116,7 +116,7 @@ def main():
         def predict_rf(data):
             # Preprocess the input data
             data_processed = preprocess_data_rf(data)
-        
+            
             # Create a DataFrame from the processed data
             data_processed_df = pd.DataFrame.from_dict(data_processed, orient='index', columns=[0])
         
