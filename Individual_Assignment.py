@@ -39,11 +39,9 @@ def main():
 
         # Function to make predictions
         def predict(data):
-            # Preprocess the input data
-            data_processed = preprocess_data(data)
-
+    
             # Convert pandas DataFrame to DMatrix
-            dmatrix = xgb.DMatrix(data_processed)
+            dmatrix = xgb.DMatrix(data)
 
             # Make predictions
             predictions = xgboost_model.predict(dmatrix)
