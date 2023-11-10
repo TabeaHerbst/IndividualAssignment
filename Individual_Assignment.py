@@ -109,7 +109,7 @@ def main():
                 st.write('This pumpkin seed is of quality type', prediction_label + '.')
 
     
-elif model_choice == "RandomForest":
+    elif model_choice == "RandomForest":
         st.header("Water Potability Prediction")
 
         def preprocess_data_rf(data):
