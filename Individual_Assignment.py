@@ -108,6 +108,10 @@ def main():
                 st.write('This pumpkin seed is of quality type', prediction_label + '.')
 
 
+st.title("Working???")
+
+print(f"Selected model: {model_choice}")
+    
     elif model_choice == "RandomForest":
         st.header("Water Potability Prediction")
 
