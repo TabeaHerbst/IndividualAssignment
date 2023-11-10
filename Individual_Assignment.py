@@ -22,6 +22,13 @@ def load_randomforest_model():
 
     return model
 
+def display_image(model_choice):
+    if model_choice == "XGBoost":
+        st.image("path/to/pumpkin_seed_image.jpg", caption="Pumpkin Seed", use_column_width=True)
+    elif model_choice == "RandomForest":
+        st.image("path/to/potability_image.jpg", caption="Potability", use_column_width=True)
+
+
 # Load models in the global scope
 xgboost_model = load_xgboost_model()
 randomforest_model = load_randomforest_model()
@@ -31,7 +38,8 @@ randomforest_model = load_randomforest_model()
 def main():
     st.title("Quality Prediction App")
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left ahnd side.")
-
+    st.image("https://github.com/TabeaHerbst/IndividualAssignment/blob/main/pumpkin_seeds_image.jpeg", use_column_width=True)
+    
     # Home screen to select the model
     model_choice = st.sidebar.radio("Select Model", ("XGBoost", "RandomForest"))
 
