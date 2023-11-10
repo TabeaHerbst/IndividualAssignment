@@ -29,23 +29,22 @@ randomforest_model = load_randomforest_model()
 
 # Streamlit app
 def main():
-    st.title("ML Model Showcase")
+    st.title("Quality Prediction App")
+    st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left ahnd side.")
 
     # Home screen to select the model
     model_choice = st.sidebar.radio("Select Model", ("XGBoost", "RandomForest"))
 
     if model_choice == "XGBoost":
-        st.header("XGBoost Model")
+        st.header("Pumpkin Seed Quality Prediction")
 
-        # Function to make predictions
         def predict(data):
-    
             # Convert pandas DataFrame to DMatrix
             dmatrix = xgb.DMatrix(data)
-
+        
             # Make predictions
             predictions = xgboost_model.predict(dmatrix)
-
+        
             return predictions
 
         average_major_axis_length = 456.60
@@ -109,7 +108,7 @@ def main():
 
 
     elif model_choice == "RandomForest":
-        st.header("RandomForest Model")
+        st.header("Water Potability Prediction")
 
         def preprocess_data_rf(data):
             data["pHxSulfate"] = data["ph"] * data["Sulfate"]
@@ -126,17 +125,15 @@ def main():
 
             return predictions
 
-
-        # Example input features for RandomForest
         # Assuming ph, Hardness, Solids, ... are the column names in your dataset
         ph = st.sidebar.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
         hardness = st.sidebar.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
-        solids = st.sidebar.slider('Solids', min_value=0.0, max_value=5000.0, value=1000.0)
-        chloramines = st.sidebar.slider('Chloramines', min_value=0.0, max_value=10.0, value=4.0)
-        sulfate = st.sidebar.slider('Sulfate', min_value=0.0, max_value=500.0, value=100.0)
-        conductivity = st.sidebar.slider('Conductivity', min_value=0.0, max_value=2000.0, value=800.0)
+        solids = st.sidebar.slider('Solids', min_value=0.0, max_value=80000.0, value=1000.0)
+        chloramines = st.sidebar.slider('Chloramines', min_value=0.0, max_value=15.0, value=4.0)
+        sulfate = st.sidebar.slider('Sulfate', min_value=0.0, max_value=700.0, value=100.0)
+        conductivity = st.sidebar.slider('Conductivity', min_value=0.0, max_value=1000.0, value=800.0)
         organic_carbon = st.sidebar.slider('Organic Carbon', min_value=0.0, max_value=50.0, value=10.0)
-        trihalomethanes = st.sidebar.slider('Trihalomethanes', min_value=0.0, max_value=100.0, value=50.0)
+        trihalomethanes = st.sidebar.slider('Trihalomethanes', min_value=0.0, max_value=200.0, value=50.0)
         turbidity = st.sidebar.slider('Turbidity', min_value=0.0, max_value=10.0, value=5.0)
 
         # Create a dictionary with the input data
