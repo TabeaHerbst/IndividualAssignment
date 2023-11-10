@@ -123,7 +123,9 @@ def main():
             # Transpose the DataFrame to have the correct shape
             data_processed_df = data_processed_df.T
         
-            # Return the processed data as a DataFrame
+            data_processed_df['prediction_column'] = randomforest_model.predict(data_processed_df)
+            print(data_processed_df)  # Print the DataFrame structure
+            
             return data_processed_df
 
         ph = st.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
@@ -155,7 +157,7 @@ def main():
         
             # Map the prediction to the corresponding class
             class_mapping_rf = {0: 'potable', 1: 'not potable'}
-            prediction_label_rf = class_mapping_rf[int(result_rf['prediction_column'].iloc[0])]  # Replace 'prediction_column' with the actual column name
+            prediction_label_rf = class_mapping_rf[int(result_rf['prediction_column'].iloc[0])]
         
             st.write('The water is', prediction_label_rf + '.')
 
