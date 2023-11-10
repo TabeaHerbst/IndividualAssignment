@@ -16,7 +16,7 @@ def load_xgboost_model():
 # Function to load the RandomForest model
 def load_randomforest_model():
     base_path = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(base_path, 'Potability_Model2.pkl')
+    model_path = os.path.join(base_path, 'Potability_Model3.pkl')
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
 
@@ -26,19 +26,25 @@ def load_randomforest_model():
 xgboost_model = load_xgboost_model()
 randomforest_model = load_randomforest_model()
 
+def display_image(model_choice):
+    if model_choice == "XGBoost":
+        st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/pumpkin_seeds_image.jpeg", caption="Pumpkin Seeds", use_column_width=True)
+    elif model_choice == "RandomForest":
+        st.image("potability_image.jpg", caption="Potability", use_column_width=True)
+
 
 # Streamlit app
 def main():
     st.title("Quality Prediction App")
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left ahnd side.")
-    st.image("https://github.com/TabeaHerbst/IndividualAssignment/blob/main/pumpkin_seeds_image.jpeg", use_column_width=True)
     
     # Home screen to select the model
     model_choice = st.sidebar.radio("Select Model", ("XGBoost", "RandomForest"))
 
     if model_choice == "XGBoost":
         st.header("Pumpkin Seed Quality Prediction")
-
+        display_image(model_choice)
+        
         def predict(data):
             # Make predictions
             predictions = xgboost_model.predict(data)
