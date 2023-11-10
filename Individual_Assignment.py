@@ -113,13 +113,15 @@ def main():
             data["SulfatexChloramines"] = data["Sulfate"] * data["Chloramines"]
             return data
 
-        # Function to make predictions for RandomForest
         def predict_rf(data):
             # Preprocess the input data
             data_processed = preprocess_data_rf(data)
         
-            # Return the processed data
-            return data_processed.to_numpy()
+            # Convert the processed data to a DataFrame
+            data_processed_df = pd.DataFrame(data_processed, columns=data_processed.keys())
+        
+            # Return the processed data as a DataFrame
+            return data_processed_df
 
         ph = st.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
         hardness = st.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
@@ -150,7 +152,7 @@ def main():
         
             # Map the prediction to the corresponding class
             class_mapping_rf = {0: 'potable', 1: 'not potable'}
-            prediction_label_rf = class_mapping_rf[int(result_rf[0])]
+            prediction_label_rf = class_mapping_rf[int(result_rf['prediction_column'].iloc[0])]  # Replace 'prediction_column' with the actual column name
         
             st.write('The water is', prediction_label_rf + '.')
 
