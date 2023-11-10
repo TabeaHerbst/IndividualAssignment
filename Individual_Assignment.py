@@ -39,13 +39,11 @@ def main():
         st.header("Pumpkin Seed Quality Prediction")
 
         def predict(data):
-            # Convert pandas DataFrame to DMatrix
-            dmatrix = xgb.DMatrix(data)
-        
             # Make predictions
-            predictions = xgboost_model.predict(dmatrix)
+            predictions = xgboost_model.predict(data)
         
             return predictions
+
 
         average_major_axis_length = 456.60
         average_minor_axis_length = 225.79
