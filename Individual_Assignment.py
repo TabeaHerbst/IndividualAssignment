@@ -31,17 +31,13 @@ def display_image(model_choice):
     elif model_choice == "Water Potability":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpeg", caption="Potability", use_column_width=True)
 
-st.markdown(
-    """
+st.sidebar.markdown("""
 <style>
-.sidebar .sidebar-content {
-    background-image: linear-gradient(#e6e6fa,#e6e6fa);
-    color: light purple;
-}
+    [data-testid=stSidebar] {
+        background-color: #ff000050;
+    }
 </style>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 def main():
     st.title("Quality Prediction App")
