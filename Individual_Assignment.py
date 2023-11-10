@@ -117,11 +117,9 @@ def main():
         def predict_rf(data):
             # Preprocess the input data
             data_processed = preprocess_data_rf(data)
-
-            # Make predictions
-            predictions = randomforest_model.predict(data_processed)
-
-            return predictions
+        
+            # Return the processed data
+            return data_processed.to_numpy()
 
         ph = st.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
         hardness = st.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
