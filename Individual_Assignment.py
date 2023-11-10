@@ -123,16 +123,16 @@ def main():
 
             return predictions
 
-        # Assuming ph, Hardness, Solids, ... are the column names in your dataset
-        ph = st.sidebar.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
-        hardness = st.sidebar.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
-        solids = st.sidebar.slider('Solids', min_value=0.0, max_value=80000.0, value=1000.0)
-        chloramines = st.sidebar.slider('Chloramines', min_value=0.0, max_value=15.0, value=4.0)
-        sulfate = st.sidebar.slider('Sulfate', min_value=0.0, max_value=700.0, value=100.0)
-        conductivity = st.sidebar.slider('Conductivity', min_value=0.0, max_value=1000.0, value=800.0)
-        organic_carbon = st.sidebar.slider('Organic Carbon', min_value=0.0, max_value=50.0, value=10.0)
-        trihalomethanes = st.sidebar.slider('Trihalomethanes', min_value=0.0, max_value=200.0, value=50.0)
-        turbidity = st.sidebar.slider('Turbidity', min_value=0.0, max_value=10.0, value=5.0)
+        ph = st.slider('pH', min_value=0.0, max_value=14.0, value=7.0)
+        hardness = st.slider('Hardness', min_value=0.0, max_value=500.0, value=200.0)
+        solids = st.slider('Solids', min_value=0.0, max_value=80000.0, value=1000.0)
+        chloramines = st.slider('Chloramines', min_value=0.0, max_value=15.0, value=4.0)
+        sulfate = st.slider('Sulfate', min_value=0.0, max_value=700.0, value=100.0)
+        conductivity = st.slider('Conductivity', min_value=0.0, max_value=1000.0, value=800.0)
+        organic_carbon = st.slider('Organic Carbon', min_value=0.0, max_value=50.0, value=10.0)
+        trihalomethanes = st.slider('Trihalomethanes', min_value=0.0, max_value=200.0, value=50.0)
+        turbidity = st.slider('Turbidity', min_value=0.0, max_value=10.0, value=5.0)
+
 
         # Create a dictionary with the input data
         input_data = {
@@ -148,13 +148,13 @@ def main():
         }
 
         if st.button("Predict"):
-                predict_rf(input_data)
-
-                # Map the prediction to the corresponding class
-                class_mapping = {0: 'potable', 1: 'not potable'}
-                prediction_label = class_mapping[int(result[0])]
-
-                st.write('The water is', prediction_label + '.')
+            result_rf = predict_rf(input_data)
+        
+            # Map the prediction to the corresponding class
+            class_mapping_rf = {0: 'potable', 1: 'not potable'}
+            prediction_label_rf = class_mapping_rf[int(result_rf[0])]
+        
+            st.write('The water is', prediction_label_rf + '.')
 
 
 if __name__ == "__main__":
