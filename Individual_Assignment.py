@@ -181,7 +181,7 @@ def main():
             result_rf = predict_rf(input_data)
             
             # Map the prediction to the corresponding class
-            class_mapping_rf = {0: 'potable', 1: 'not potable'}
+            class_mapping_rf = {0: 'not potable', 1: 'potable'}
             prediction_label_rf = class_mapping_rf[int(result_rf['prediction_column'].iloc[0])]
     
             # Display the result with a colored field
