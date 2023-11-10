@@ -30,7 +30,7 @@ def display_image(model_choice):
     if model_choice == "XGBoost":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/pumpkin_seeds_image.jpeg", caption="Pumpkin Seeds", use_column_width=True)
     elif model_choice == "RandomForest":
-        st.image("https://github.com/TabeaHerbst/IndividualAssignment/blob/main/potability_image.jpeg", caption="Potability", use_column_width=True)
+        st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpeg", caption="Potability", use_column_width=True)
 
 def main():
     st.title("Quality Prediction App")
@@ -49,6 +49,16 @@ def main():
             predictions = xgboost_model.predict(data)
             return predictions
             
+        average_major_axis_length = 456.60
+        average_minor_axis_length = 225.79
+        average_eccentricity = 0.86
+        average_solidity = 0.99
+        average_extent = 0.69
+        average_roundness = 0.79
+        average_aspect_ratio = 2.04
+        average_compactness = 0.70
+        # Input form with input fields
+
         average_major_axis_length = 456.60
         average_minor_axis_length = 225.79
         average_eccentricity = 0.86
@@ -83,7 +93,6 @@ def main():
         compactness = st.number_input('Compactness', min_value=0.0, max_value=1.0, value=1.0)
         st.markdown('<p style="font-size: smaller; font-style: italic;">The average Compactness is {:.2f}. You can maximally input a value of 1.00.</p>'.format(average_compactness), unsafe_allow_html=True)
 
-
         if not major_axis_length or not minor_axis_length or not eccentricity or not solidity or not extent or not roundness or not aspect_ratio or not compactness:
             st.error('Error: All fields are mandatory. Please fill in all measurements.')
         else:
@@ -97,7 +106,6 @@ def main():
                 'Aspect_Ration': [aspect_ratio],
                 'Compactness': [compactness]
             })
-
 
             if st.button("Predict"):
                 result = predict(user_input)
@@ -167,8 +175,20 @@ def main():
             # Map the prediction to the corresponding class
             class_mapping_rf = {0: 'potable', 1: 'not potable'}
             prediction_label_rf = class_mapping_rf[int(result_rf['prediction_column'].iloc[0])]
-        
-            st.write('The water is', prediction_label_rf + '.')
+
+            # Display the result with a colored field
+            if prediction_label_rf == 'potable':
+                st.success('The water is potable.')
+            else:
+                st.error('The water is not potable.')
+
+            # Add a colored field to visually indicate potability
+            color = 'green' if prediction_label_rf == 'potable' else 'red'
+            st.markdown(
+                f'<div style="background-color:{color}; padding:10px; border-radius:5px;">'
+                f'<p style="color:white; text-align:center; font-size: larger;">'
+                f'The water is {prediction_label_rf}.'
+                f'</p></div>', unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
