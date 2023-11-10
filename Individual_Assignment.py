@@ -37,10 +37,10 @@ def main():
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
     
     # Home screen to select the model
-    model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Prediction", "Water Potability Prediction"))
+    model_choice = st.sidebar.radio("Select Model", ("XGBoost", "RandomForest"))
     print(f"Selected model: {model_choice}")
-    
-if model_choice == "XGBoost":
+
+    if model_choice == "XGBoost":
         st.header("Pumpkin Seed Quality Prediction")
         display_image(model_choice)
         
