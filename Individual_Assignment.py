@@ -32,7 +32,6 @@ def display_image(model_choice):
     elif model_choice == "RandomForest":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpg", caption="Potability", use_column_width=True)
 
-
 def main():
     st.title("Quality Prediction App")
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
@@ -47,10 +46,8 @@ def main():
         def predict(data):
             # Make predictions
             predictions = xgboost_model.predict(data)
-        
             return predictions
-
-
+            
         average_major_axis_length = 456.60
         average_minor_axis_length = 225.79
         average_eccentricity = 0.86
