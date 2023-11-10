@@ -181,9 +181,10 @@ def main():
                 f'The water is {prediction_label_rf}.'
                 f'</p></div>', unsafe_allow_html=True)
 
+    
     st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
-    st.sidebar.markdown("[Pumpkin Seeds Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/Pumpkin_Seeds_Dataset.csv)")
-    st.sidebar.markdown("[Water Potability Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/water_potability.csv)")
+    st.sidebar.markdown('<p style="font-size: smaller;">[Pumpkin Seeds Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/Pumpkin_Seeds_Dataset.csv)</p>', unsafe_allow_html=True)
+    st.sidebar.markdown('<p style="font-size: smaller;">[Water Potability Source Datasets on GitHub](https://github.com/TabeaHerbst/IndividualAssignment/blob/main/water_potability.csv)</p>', unsafe_allow_html=True)
 
     
 
