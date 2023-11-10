@@ -27,7 +27,7 @@ randomforest_model = load_randomforest_model()
 
 def display_image(model_choice):
     if model_choice == "Pumpkin Seed Quality":
-        st.image("https://github.com/TabeaHerbst/IndividualAssignment/blob/main/pumpkin_seeds_image.jpeg", caption="Pumpkin Seeds", use_column_width=True)
+        st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/pumpkin_seeds_image.jpeg", caption="Pumpkin Seeds", use_column_width=True)
     elif model_choice == "Water Potability":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpeg", caption="Potability", use_column_width=True)
 
