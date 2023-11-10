@@ -34,12 +34,10 @@ def display_image(model_choice):
 def main():
     st.title("Quality Prediction App")
     st.write("Interested to find out the quality of your pumpkin seed or water probe? You're at the right place! Choose for which probe you want to predict quality on the left hand side.")
-        
-    # Home screen to select the model
-    model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Quality", "Water Potability"))
-    print(f"Selected model: {model_choice}")
     
-    if model_choice == "XGBoost":
+    model_choice = st.sidebar.radio("Select Model", ("Pumpkin Seed Quality", "Water Potability"))
+    
+    if model_choice == "Pumpkin Seed Quality":
         st.header("Pumpkin Seed Quality Prediction")
         display_image(model_choice)
     
@@ -105,7 +103,7 @@ def main():
     
                 st.write('This pumpkin seed is of quality type', prediction_label + '.')
     
-    elif model_choice == "RandomForest":
+    elif model_choice == "Water Potability":
         st.header("Water Potability Prediction")
     
         def preprocess_data_rf(data):
