@@ -9,8 +9,8 @@ import pickle
 def load_xgboost_model():
     base_path = os.path.dirname(os.path.abspath(__file__))
     model_path = os.path.join(base_path, 'Pumpkin_Model.pkl')
-    model = xgb.Booster()
-    model.load_model(model_path)
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)
     return model
 
 # Function to load the RandomForest model
