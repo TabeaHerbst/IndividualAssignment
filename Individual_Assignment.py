@@ -59,16 +59,6 @@ def main():
         average_compactness = 0.70
         # Input form with input fields
 
-        average_major_axis_length = 456.60
-        average_minor_axis_length = 225.79
-        average_eccentricity = 0.86
-        average_solidity = 0.99
-        average_extent = 0.69
-        average_roundness = 0.79
-        average_aspect_ratio = 2.04
-        average_compactness = 0.70
-        # Input form with input fields
-
         major_axis_length = st.number_input('Major Axis Length', min_value=0.0, value=1.0)
         st.markdown('<p style="font-size: smaller; font-style: italic;">The average Major Axis Length is {:.2f}</p>'.format(average_major_axis_length), unsafe_allow_html=True)
 
@@ -131,6 +121,9 @@ def main():
         
             # Create a DataFrame from the processed data
             data_processed_df = pd.DataFrame.from_dict(data_processed, orient='index', columns=[0])
+        
+            # Transpose the DataFrame to have the correct shape
+
         
             # Transpose the DataFrame to have the correct shape
             data_processed_df = data_processed_df.T
