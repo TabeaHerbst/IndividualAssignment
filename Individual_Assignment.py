@@ -33,13 +33,14 @@ def display_image(model_choice):
 
 st.markdown(
     """
-    <style>
-        .sidebar .sidebar-content {
-            background-color: #8a63bf; /* Darker Purple */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
+<style>
+.sidebar .sidebar-content {
+    background-image: linear-gradient(#e6e6fa,#e6e6fa);
+    color: light purple;
+}
+</style>
+""",
+    unsafe_allow_html=True,
 )
 
 def main():
