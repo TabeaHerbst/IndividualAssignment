@@ -186,7 +186,16 @@ def main():
     st.sidebar.markdown('<a style="font-size: smaller;" href="https://github.com/TabeaHerbst/IndividualAssignment/blob/main/water_potability.csv" target="_blank">Water Potability Source Datasets on GitHub</a>', unsafe_allow_html=True)
     st.markdown("<br><br><br><br><br><br><br><br>", unsafe_allow_html=True)
     st.markdown("**Disclaimer:** *The predictions are based on statistical patterns and should be interpreted as probabilities. The model does not guarantee individual accuracy, and uncertainties are inherent in machine learning models.*")
-
+    st.markdown(
+    """
+    <style>
+        .sidebar .sidebar-content {
+            background-color: #f2e8ff; /* Light Purple */
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
 
 if __name__ == "__main__":
     main()
