@@ -31,13 +31,6 @@ def display_image(model_choice):
     elif model_choice == "Water Potability":
         st.image("https://github.com/TabeaHerbst/IndividualAssignment/raw/main/potability_image.jpeg", caption="Potability", use_column_width=True)
 
-st.sidebar.markdown("""
-<style>
-    [data-testid=stSidebar] {
-        background-color: #ff000050;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 def main():
     st.title("Quality Prediction App")
@@ -49,6 +42,13 @@ def main():
     if model_choice == "Pumpkin Seed Quality":
         st.header("Pumpkin Seed Quality Prediction")
         display_image(model_choice)
+        st.sidebar.markdown("""
+        <style>
+            [data-testid=stSidebar] {
+                background-color: #C4A484;
+            }
+        </style>
+        """, unsafe_allow_html=True)
     
         def predict(data):
             # Make predictions
